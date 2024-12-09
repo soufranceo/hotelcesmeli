@@ -1,0 +1,51 @@
+.action-bar {
+  background-color: #1e3a8a;
+  color: white;
+}
+
+.page {
+  background-color: #f3f4f6;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8;
+  margin: 8;
+  padding: 16;
+}
+
+.h1 {
+  font-size: 24;
+  font-weight: bold;
+  color: #1e3a8a;
+  margin-bottom: 8;
+}
+
+.h2 {
+  font-size: 20;
+  font-weight: bold;
+  color: #1e3a8a;
+  margin-bottom: 8;
+}
+
+.body {
+  font-size: 16;
+  color: #4b5563;
+}
+
+.button {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 12;
+  border-radius: 4;
+  font-weight: bold;
+}
+
+.button:highlighted {
+  background-color: #1e40af;
+}
+
+.icon {
+  font-family: "Material Icons", "MaterialIcons-Regular";
+  font-size: 24;
+}
