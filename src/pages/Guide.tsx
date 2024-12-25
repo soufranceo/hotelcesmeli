@@ -27,7 +27,7 @@ const Guide = ({ language }: { language: 'tr' | 'en' }) => {
         title: 'Kapalı Çarşı',
         description: 'Osmanlı döneminden kalma tarihi çarşı, geleneksel Türk el sanatları ve tekstil ürünleri sunar. Turistlerin vazgeçilmez duraklarından biridir.',
         location: 'https://maps.google.com/maps?q=Kapalı+Çarşı+Bursa',
-        image: 'http://www.bursa.gov.tr/kurumlar/bursa.gov.tr/Bursa.gov/bursa/kapali-carsi/7.jpg?mode=resize&width=1200'
+        image: 'https://www.dergibursa.com.tr/wp-content/uploads/2015/06/Sultan-%C3%87ar%C5%9F%C4%B1lar%C4%B1-ve-Hanlar-B%C3%B6lgesi.jpg'
       },
       {
         title: 'Tarihi Bursa Çınarı',
@@ -77,7 +77,7 @@ const Guide = ({ language }: { language: 'tr' | 'en' }) => {
         title: 'Grand Bazaar',
         description: 'Historical bazaar from the Ottoman period, offering traditional Turkish handicrafts and textile products.',
         location: 'https://maps.google.com/maps?q=Grand+Bazaar+Bursa',
-        image: 'http://www.bursa.gov.tr/kurumlar/bursa.gov.tr/Bursa.gov/bursa/kapali-carsi/7.jpg?mode=resize&width=1200'
+        image: 'https://www.dergibursa.com.tr/wp-content/uploads/2015/06/Sultan-%C3%87ar%C5%9F%C4%B1lar%C4%B1-ve-Hanlar-B%C3%B6lgesi.jpg'
       },
       {
         title: 'Historical Bursa Plane Tree',
