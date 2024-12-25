@@ -21,7 +21,7 @@ const Guide = ({ language }: { language: 'tr' | 'en' }) => {
         title: 'Yeşil Çarşı',
         description: 'Geleneksel Bursa el sanatları ve hediyelik eşyaların bulunduğu tarihi çarşı.',
         location: 'https://maps.google.com/maps?q=Yeşil+Çarşı+Bursa',
-        image: 'http://www.bursa.gov.tr/kurumlar/bursa.gov.tr/haber/2023/12_ARALIK/1_Yesil_Carsi_/ZFGD9231_s.jpg?mode=resize&width=1200'
+        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/4c/0b/9c/lindas-luminarias.jpg?w=900&h=500&s=1'
       },
       {
         title: 'Kapalı Çarşı',
@@ -71,7 +71,7 @@ const Guide = ({ language }: { language: 'tr' | 'en' }) => {
         title: 'Green Bazaar',
         description: 'Historical bazaar featuring traditional Bursa handicrafts and souvenirs.',
         location: 'https://maps.google.com/maps?q=Green+Bazaar+Bursa',
-        image: 'http://www.bursa.gov.tr/kurumlar/bursa.gov.tr/haber/2023/12_ARALIK/1_Yesil_Carsi_/ZFGD9231_s.jpg?mode=resize&width=1200'
+        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/4c/0b/9c/lindas-luminarias.jpg?w=900&h=500&s=1'
       },
       {
         title: 'Grand Bazaar',
