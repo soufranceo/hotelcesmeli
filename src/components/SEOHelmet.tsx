@@ -16,7 +16,7 @@ const SEOHelmet: React.FC<SEOHelmetProps> = ({
   path,
   image = 'https://cesmelihotel.com/hotel-exterior.jpg'
 }) => {
-  const baseUrl = 'https://cesmelihotel.com';
+  const baseUrl = 'https://hotelcesmeli.com';
   const fullUrl = `${baseUrl}${path}`;
   const defaultTitle = 'Çeşmeli Hotel Bursa - Merkezi Konum, Uygun Fiyat';
   const fullTitle = title === defaultTitle ? title : `${title} | Çeşmeli Hotel Bursa`;
