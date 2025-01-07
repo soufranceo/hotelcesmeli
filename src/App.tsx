@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CookieConsent from './components/CookieConsent';
 import VisitorTracker from './components/VisitorTracker';
+import WhatsAppButton from './components/WhatsAppButton';
 import Home from './pages/Home';
 import Rooms from './pages/Rooms';
 import About from './pages/About';
@@ -16,7 +17,7 @@ import Dashboard from './pages/admin/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
-  const [language, setLanguage] = useState<'tr' | 'en'>('tr');
+  const [language, setLanguage] = useState<'tr' | 'en' | 'ar'>('tr');
 
   return (
     <HelmetProvider>
@@ -45,6 +46,7 @@ function App() {
             </main>
             <Footer />
             <CookieConsent />
+            <WhatsAppButton />
           </div>
         </Router>
       </AuthProvider>

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import HotelTitle from './HotelTitle';
 
-const Navbar = ({ setLanguage, language }: { setLanguage: (lang: 'tr' | 'en') => void, language: 'tr' | 'en' }) => {
+const Navbar = ({ setLanguage, language }: { setLanguage: (lang: 'tr' | 'en' | 'ar') => void, language: 'tr' | 'en' | 'ar' }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = {
     tr: ['Ana Sayfa', 'Odalarımız', 'Hakkımızda', 'Bursa Rehberi', 'İletişim'],
-    en: ['Home', 'Rooms', 'About', 'Bursa Guide', 'Contact']
+    en: ['Home', 'Rooms', 'About', 'Bursa Guide', 'Contact'],
+    ar: ['الصفحة الرئيسية', 'الغرف', 'معلومات عنا', 'دليل بورصة', 'اتصل بنا']
   };
 
   const paths = ['/', '/rooms', '/about', '/guide', '/contact'];
@@ -16,11 +18,10 @@ const Navbar = ({ setLanguage, language }: { setLanguage: (lang: 'tr' | 'en') =>
     <nav className="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="text-2xl font-semibold text-blue-900">
-            Merkez Çeşmeli Otel
+          <Link to="/" className="flex items-center">
+            <HotelTitle language={language} />
           </Link>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {menuItems[language].map((item, index) => (
               <Link
@@ -31,16 +32,28 @@ const Navbar = ({ setLanguage, language }: { setLanguage: (lang: 'tr' | 'en') =>
                 {item}
               </Link>
             ))}
-            <button
-              onClick={() => setLanguage(language === 'tr' ? 'en' : 'tr')}
-              className="flex items-center text-gray-700 hover:text-blue-900"
-            >
-              <Globe className="w-5 h-5 mr-1" />
-              {language.toUpperCase()}
-            </button>
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={() => setLanguage('tr')}
+                className={`px-2 py-1 rounded ${language === 'tr' ? 'bg-blue-900 text-white' : 'text-gray-700'}`}
+              >
+                TR
+              </button>
+              <button
+                onClick={() => setLanguage('en')}
+                className={`px-2 py-1 rounded ${language === 'en' ? 'bg-blue-900 text-white' : 'text-gray-700'}`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLanguage('ar')}
+                className={`px-2 py-1 rounded ${language === 'ar' ? 'bg-blue-900 text-white' : 'text-gray-700'}`}
+              >
+                عربي
+              </button>
+            </div>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
@@ -49,7 +62,6 @@ const Navbar = ({ setLanguage, language }: { setLanguage: (lang: 'tr' | 'en') =>
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden py-4">
             {menuItems[language].map((item, index) => (
@@ -62,16 +74,35 @@ const Navbar = ({ setLanguage, language }: { setLanguage: (lang: 'tr' | 'en') =>
                 {item}
               </Link>
             ))}
-            <button
-              onClick={() => {
-                setLanguage(language === 'tr' ? 'en' : 'tr');
-                setIsOpen(false);
-              }}
-              className="flex items-center py-2 text-gray-700 hover:text-blue-900"
-            >
-              <Globe className="w-5 h-5 mr-1" />
-              {language.toUpperCase()}
-            </button>
+            <div className="flex space-x-2 py-2">
+              <button
+                onClick={() => {
+                  setLanguage('tr');
+                  setIsOpen(false);
+                }}
+                className={`px-2 py-1 rounded ${language === 'tr' ? 'bg-blue-900 text-white' : 'text-gray-700'}`}
+              >
+                TR
+              </button>
+              <button
+                onClick={() => {
+                  setLanguage('en');
+                  setIsOpen(false);
+                }}
+                className={`px-2 py-1 rounded ${language === 'en' ? 'bg-blue-900 text-white' : 'text-gray-700'}`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => {
+                  setLanguage('ar');
+                  setIsOpen(false);
+                }}
+                className={`px-2 py-1 rounded ${language === 'ar' ? 'bg-blue-900 text-white' : 'text-gray-700'}`}
+              >
+                عربي
+              </button>
+            </div>
           </div>
         )}
       </div>

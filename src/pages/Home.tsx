@@ -7,7 +7,7 @@ import WorldClock from '../components/WorldClock';
 import WelcomeOverlay from '../components/WelcomeOverlay';
 import SEOHelmet from '../components/SEOHelmet';
 
-const Home = ({ language }: { language: 'tr' | 'en' }) => {
+const Home = ({ language }: { language: 'tr' | 'en' | 'ar' }) => {
   const reviews = {
     tr: [
       {
@@ -16,39 +16,14 @@ const Home = ({ language }: { language: 'tr' | 'en' }) => {
         comment: "Merkezi konumu ve temizliği ile harika bir otel. Personel çok ilgili ve yardımsever."
       },
       {
-        name: "Ayşe K.",
+        name: "Mehmet K.",
         rating: 10,
-        comment: "Kahvaltısı muhteşem, odalar çok konforlu. Kesinlikle tekrar tercih edeceğim."
+        comment: "Kahvaltı mükemmel, odalar çok rahat. Kesinlikle tekrar tercih edeceğim."
       },
       {
-        name: "Mehmet S.",
+        name: "Ayşe S.",
         rating: 9,
         comment: "İş seyahatleri için ideal. Ulaşım çok kolay ve merkezi konumda."
-      },
-      {
-        name: "Fatma D.",
-        rating: 10,
-        comment: "Aile dostu bir otel. Çocuklarımızla rahat bir konaklama geçirdik."
-      },
-      {
-        name: "Ali R.",
-        rating: 9,
-        comment: "Temizlik ve hijyen konusunda çok titizler. Güvenle kalabilirsiniz."
-      },
-      {
-        name: "Zeynep B.",
-        rating: 9,
-        comment: "Tarihi yerlere yakınlığı büyük avantaj. Personel çok nazik."
-      },
-      {
-        name: "Mustafa K.",
-        rating: 10,
-        comment: "Fiyat/performans açısından mükemmel. Kahvaltı çeşitleri zengin."
-      },
-      {
-        name: "Esra M.",
-        rating: 9,
-        comment: "Odalar ferah ve aydınlık. Konum olarak çok merkezi."
       }
     ],
     en: [
@@ -60,37 +35,29 @@ const Home = ({ language }: { language: 'tr' | 'en' }) => {
       {
         name: "Sarah M.",
         rating: 10,
-        comment: "Breakfast is amazing, rooms very comfortable. Will definitely choose again."
+        comment: "Excellent breakfast, very comfortable rooms. Will definitely choose again."
       },
       {
         name: "Michael R.",
         rating: 9,
-        comment: "Ideal for business trips. Transportation is very easy and centrally located."
+        comment: "Perfect for business trips. Easy transportation and central location."
+      }
+    ],
+    ar: [
+      {
+        name: "محمد س.",
+        rating: 9,
+        comment: "فندق رائع بموقع مركزي ونظافة. الموظفون متعاونون ومهتمون للغاية."
       },
       {
-        name: "Emma W.",
+        name: "أحمد ي.",
         rating: 10,
-        comment: "Family-friendly hotel. Had a comfortable stay with our children."
+        comment: "الإفطار رائع، الغرف مريحة جداً. سأختاره مرة أخرى بالتأكيد."
       },
       {
-        name: "David L.",
+        name: "فاطمة م.",
         rating: 9,
-        comment: "Very meticulous about cleanliness and hygiene. You can stay with confidence."
-      },
-      {
-        name: "Lisa K.",
-        rating: 9,
-        comment: "Proximity to historical places is a big advantage. Staff very polite."
-      },
-      {
-        name: "Robert P.",
-        rating: 10,
-        comment: "Excellent value for money. Rich breakfast varieties."
-      },
-      {
-        name: "Anna S.",
-        rating: 9,
-        comment: "Rooms are spacious and bright. Very central location."
+        comment: "مثالي لرحلات العمل. المواصلات سهلة جداً والموقع مركزي."
       }
     ]
   };
@@ -98,7 +65,7 @@ const Home = ({ language }: { language: 'tr' | 'en' }) => {
   const images = [
     {
       url: "https://resmim.net/cdn/2024/12/09/DokmC2.jpg",
-      alt: "Çeşmeli Hotel Dış Görünüm"
+      alt: "Hotel Çeşmeli Dış Görünüm"
     },
     {
       url: "https://resmim.net/cdn/2024/12/09/DokNnk.webp",
@@ -116,14 +83,19 @@ const Home = ({ language }: { language: 'tr' | 'en' }) => {
 
   const seoContent = {
     tr: {
-      title: 'Çeşmeli Hotel Bursa - Merkezi Konum, Uygun Fiyat',
-      description: 'Bursa\'nın merkezinde, Ulucami ve Kapalı Çarşı\'ya yakın konumda bulunan Çeşmeli Hotel. Ailenizin huzur ve güvenli adresi. Uygun fiyatlı konaklama, ücretsiz WiFi ve açık büfe kahvaltı.',
-      keywords: 'bursa otel, bursa merkez otel, çeşmeli hotel, uygun otel bursa, ulucami yakını otel, kapalı çarşı yakını otel, bursa konaklama, bursa tatil, merkez otel bursa, aile oteli bursa'
+      title: 'Hotel Çeşmeli Bursa - Merkezi Konum, Uygun Fiyat',
+      description: 'Bursa\'nın merkezinde, Ulucami ve Kapalı Çarşı\'ya yakın konumda bulunan Hotel Çeşmeli. Ailenizin huzur ve güvenli adresi. Uygun fiyatlı konaklama, ücretsiz WiFi ve açık büfe kahvaltı.',
+      keywords: 'bursa otel, bursa merkez otel, çeşmeli hotel, uygun otel bursa, ulucami yakını otel, kapalı çarşı yakını otel, bursa konaklama'
     },
     en: {
-      title: 'Çeşmeli Hotel Bursa - Central Location, Affordable Prices',
+      title: 'Hotel Çeşmeli Bursa - Central Location, Affordable Prices',
       description: 'Located in the center of Bursa, close to Ulucami and Grand Bazaar. Your family\'s peaceful and safe address. Affordable accommodation with free WiFi and open buffet breakfast.',
-      keywords: 'bursa hotel, central bursa hotel, cesmeli hotel, affordable hotel bursa, hotel near ulucami, hotel near grand bazaar, bursa accommodation, bursa holiday, central hotel bursa'
+      keywords: 'bursa hotel, central bursa hotel, cesmeli hotel, affordable hotel bursa, hotel near ulucami, hotel near grand bazaar'
+    },
+    ar: {
+      title: 'فندق تشيشملي بورصة - موقع مركزي، أسعار مناسبة',
+      description: 'يقع في وسط بورصة، بالقرب من جامع أولو والسوق المغطى. عنوان عائلتك للراحة والأمان. إقامة بأسعار معقولة مع واي فاي مجاني وإفطار مفتوح.',
+      keywords: 'فندق بورصة، فندق وسط بورصة، فندق تشيشملي، فندق رخيص بورصة، فندق قرب جامع أولو، فندق قرب السوق المغطى'
     }
   };
 
@@ -145,7 +117,9 @@ const Home = ({ language }: { language: 'tr' | 'en' }) => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl font-bold text-blue-900 text-center mb-8">
-              {language === 'tr' ? 'Misafirlerimizin Yorumları' : 'Guest Reviews'}
+              {language === 'tr' ? 'Misafirlerimizin Yorumları' : 
+               language === 'en' ? 'Guest Reviews' : 
+               'آراء ضيوفنا'}
             </h1>
             <ReviewScroller reviews={reviews[language]} language={language} />
           </motion.div>
