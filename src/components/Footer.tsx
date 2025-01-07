@@ -45,7 +45,7 @@ const Footer = () => {
           <p className="text-center text-sm">
             © {currentYear} Çeşmeli Hotel. Tüm hakları saklıdır.<br />
             <span className="flex items-center justify-center mt-2">
-              Written with <Heart className="w-4 h-4 mx-1 text-red-500 fill-current" /> by Mehmet Akgül
+              Writen with <Heart className="w-4 h-4 mx-1 text-red-500 fill-current" /> by Mehmet Akgül
             </span>
           </p>
         </div>
