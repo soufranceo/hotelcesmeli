@@ -1,56 +1,55 @@
 import React from 'react';
-import SEOHelmet from './SEOHelmet'; // Mevcut SEOHelmet bileşenini içeri aktarın.
+import { Helmet } from 'react-helmet-async';
 
-const pageMetadata = {
-  home: {
-    title: "Çeşmeli Hotel Bursa - Konforlu ve Uygun Fiyatlı Konaklama",
-    description: "Hotel Çeşmeli Bursa, merkezi konumu ve uygun fiyatlarıyla tatilinizi unutulmaz kılar. Hijyenik ve konforlu odalar sunar.",
-    keywords: "Çeşmeli Hotel, Bursa Otel, Uygun Fiyatlı otel, Merkezi Otel, Aile Oteli, 750, ucuz otel, nerede konaklanır",
-    path: "/",
-    image: "https://r.resimlink.com/kYTfn9u.jpg",
-  },
-  rooms: {
-    title: "Odalar - Çeşmeli Hotel Bursa",
-    description: "Çeşmeli Hotel Bursa, her bütçeye uygun konforlu ve hijyenik odalar sunar. Tatilinizin keyfini çıkarın!",
-    keywords: "Çeşmeli Hotel Odalar, Bursa Ucuz Odalar, Konforlu Konaklama, Aile Odaları, bursa telefon",
-    path: "/rooms",
-    image: "https://r.resimlink.com/kYTfn9u.jpg",
-  },
-  about: {
-    title: "Hakkımızda - Çeşmeli Hotel Bursa",
-    description: "Çeşmeli Hotel Bursa, yılların deneyimi ve müşteri memnuniyetine dayalı hizmet anlayışıyla size özel bir konaklama sunar.",
-    keywords: "Çeşmeli Hotel Hakkımızda, Bursa Otel Tarihçesi, Müşteri Memnuniyeti, bursa iletişim, bursa tarihi",
-    path: "/about",
-    image: "https://r.resimlink.com/kYTfn9u.jpg",
-  },
-  guide: {
-    title: "Bursa Rehberi - Çeşmeli Hotel Bursa",
-    description: "Bursa'da gezilecek yerler ve yapılacak aktiviteler hakkında bilgi alın. Çeşmeli Hotel Bursa rehberiniz!",
-    keywords: "Bursa Rehberi, Bursa Gezilecek Yerler, Çeşmeli Hotel Bursa Aktiviteler, nerede konaklanır, gezilecek yerler, bursa kebabı",
-    path: "/guide",
-    image: "https://r.resimlink.com/kYTfn9u.jpg",
-  },
-  contact: {
-    title: "İletişim - Çeşmeli Hotel Bursa",
-    description: "Çeşmeli Hotel Bursa ile iletişim kurun. Rezervasyon ve sorularınız için bize ulaşabilirsiniz.",
-    keywords: "Çeşmeli Hotel İletişim, Bursa Otel Rezervasyon, Otel Telefon, iletişim, bursa otel telefon, uygun otel telefon, ucuz otel nerede",
-    path: "/contact",
-    image: "https://r.resimlink.com/kYTfn9u.jpg",
-  },
-};
+interface SEOHelmetProps {
+  title: string;
+  description: string;
+  keywords: string;
+  path: string;
+  image?: string;
+}
 
-const DynamicSEOHelmet: React.FC<{ page: keyof typeof pageMetadata }> = ({ page }) => {
-  const metadata = pageMetadata[page];
+const SEOHelmet: React.FC<SEOHelmetProps> = ({ 
+  title, 
+  description, 
+  keywords, 
+  path,
+  image = 'https://r.resimlink.com/kYTfn9u.jpg'
+}) => {
+  const baseUrl = 'https://hotelcesmeli.com';
+  const fullUrl = `${baseUrl}${path}`;
+  const defaultTitle = 'Çeşmeli Hotel Bursa - Merkezi Konum, Uygun Fiyat';
+  const fullTitle = title === defaultTitle ? title : `${title} | Çeşmeli Hotel Bursa`;
 
   return (
-    <SEOHelmet
-      title={metadata.title}
-      description={metadata.description}
-      keywords={metadata.keywords}
-      path={metadata.path}
-      image={metadata.image}
-    />
+    <Helmet>
+     <title>Hotel Çeşmeli Bursa | Konforlu ve Uygun Fiyatlı Konaklama</title>
+<meta name="description" content="Hotel Çeşmeli Bursa, konforlu ve uygun fiyatlarla konaklama imkanı sunar. Tatilinizi burada geçirebilirsiniz ve.." />
+      <meta name="keywords" content="Hotel Çeşmeli, bursa, merkez, ucuz, 750, Konaklama, Tatil, Uygun Fiyatlı Hotel, merkezde uygun fiyatlı otel, bursa ucuz otel, ucuz oda, bursa tatil" />
+      <link rel="canonical" href="https://hotelcesmeli.com/" />
+
+      {/* Open Graph Meta Tags */}
+      <meta property="og:title" content="Hotel Çeşmeli Bursa - Bursa'da En İyi aile otellerinden biri.." />
+      <meta property="og:description" content="Hotel Çeşmel, konforlu ve uygun fiyatlarla tatil yapabileceğiniz ideal bir mekandır.Bursa'da En İyi aile otellerinden biri uygun hijyenik fiyatlı full  konaklama hizmeti" />
+      <meta property="og:url" content="https://hotelcesmeli.com/" />
+      <meta property="og:image" content="https://r.resimlink.com/kYTfn9u.jpg" />
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content="tr_TR" />
+      <meta property="og:site_name" content="Hotel Çeşmeli Bursa" />
+
+      {/* Twitter Card Meta Tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
+
+      {/* Location Meta Tags */}
+      <meta name="geo.region" content="TR-16" />
+      <meta name="geo.placename" content="Bursa" />
+      <meta name="geo.position" content="40.182622;29.062901" />
+      <meta name="ICBM" content="40.182622, 29.062901" />
+    </Helmet>
   );
 };
 
-export default DynamicSEOHelmet;
+export default SEOHelmet;
