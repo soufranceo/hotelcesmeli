@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Clock, Wifi, Coffee } from 'lucide-react';
 
-const About = ({ language }: { language: 'tr' | 'en' }) => {
+const About = ({ language }: { language: 'tr' | 'en' | 'ar' }) => {
   const content = {
     tr: {
       title: 'Hakkımızda',
@@ -40,6 +40,25 @@ const About = ({ language }: { language: 'tr' | 'en' }) => {
         { name: 'Bursa City Museum', distance: '3 minutes' },
         { name: 'Tophane', distance: '10 minutes' },
         { name: 'Historical Bursa Kebab Restaurant', distance: '1 minute' }
+      ]
+    },
+    ar: {
+      title: 'معلومات عنا',
+      description: 'يقع فندق تشيشملي بين فنادق وسط بورصة، وهو أحد أكثر الفنادق المفضلة والمريحة في بورصة، في منطقة عثمان غازي المركزية، بالقرب من السوق المغطى وجامع أولو والمباني الرمزية.',
+      details: 'يوفر الفندق إقامة مريحة بأسعار معقولة مع 18 غرفة. يقدم المرفق خدماته على مفهوم المبيت والإفطار، حيث يتم تقديم خدمة الإفطار كبوفيه مفتوح.',
+      features: [
+        'واي فاي مجاني',
+        'إفطار بوفيه مفتوح',
+        '18 غرفة مريحة',
+        'استقبال 24/7'
+      ],
+      locations: [
+        { name: 'خان كوزا', distance: 'دقيقتان' },
+        { name: 'جامع بورصة الكبير', distance: 'دقيقتان' },
+        { name: 'الضريح الأخضر', distance: '10 دقائق' },
+        { name: 'متحف مدينة بورصة', distance: '3 دقائق' },
+        { name: 'طوب خانة', distance: '10 دقائق' },
+        { name: 'مطعم بورصة التاريخي للكباب', distance: 'دقيقة واحدة' }
       ]
     }
   };
@@ -89,7 +108,9 @@ const About = ({ language }: { language: 'tr' | 'en' }) => {
             className="bg-white rounded-lg shadow-lg p-8"
           >
             <h2 className="text-2xl font-semibold text-blue-900 mb-6">
-              {language === 'tr' ? 'Yakın Konumlar' : 'Nearby Locations'}
+              {language === 'tr' ? 'Yakın Konumlar' : 
+               language === 'en' ? 'Nearby Locations' : 
+               'المواقع القريبة'}
             </h2>
             <div className="space-y-4">
               {content[language].locations.map((location, index) => (
