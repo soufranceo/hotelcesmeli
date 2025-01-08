@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Navigation } from 'lucide-react';
 
-const Guide = ({ language }: { language: 'tr' | 'en' }) => {
+const Guide = ({ language }: { language: 'tr' | 'en' | 'ar' }) => {
   const places = {
     tr: [
       {
@@ -25,21 +25,23 @@ const Guide = ({ language }: { language: 'tr' | 'en' }) => {
       },
       {
         title: 'Kapalı Çarşı',
-        description: 'Osmanlı döneminden kalma tarihi çarşı, geleneksel Türk el sanatları ve tekstil ürünleri sunar. Turistlerin vazgeçilmez duraklarından biridir.',
+        description: 'Osmanlı döneminden kalma tarihi çarşı, geleneksel Türk el sanatları ve tekstil ürünleri sunuyor.',
         location: 'https://maps.google.com/maps?q=Kapalı+Çarşı+Bursa',
-        image: 'https://www.dergibursa.com.tr/wp-content/uploads/2015/06/Sultan-%C3%87ar%C5%9F%C4%B1lar%C4%B1-ve-Hanlar-B%C3%B6lgesi.jpg'
+        image: 'https://images.unsplash.com/photo-1596397248147-c7a8f8718873'
       },
       {
-        title: 'Tarihi Bursa Çınarı',
+        title: 'Tarihi Bursa İnkaya Çınarı',
         description: 'İnkaya Çınarı olarak da bilinen 700 yıllık çınar ağacı, Bursa\'nın yaşayan tarihi anıtlarından biridir.Sabah kahvaltılarında ve öğlen çay molalarında harika bir duraktır.',
         location: 'https://maps.google.com/maps?q=İnkaya+Çınarı+Bursa',
         image: 'https://cdnuploads.aa.com.tr/uploads/userFiles/82e2c611-519a-471c-8da1-e26f0e4933a0/2019%2FAgustoss22%2F20190819_2_37812092_46893354.jpg'
+
       },
       {
         title: 'Bursa Teleferik',
         description: 'Dünya\'nın en uzun teleferik hattı olan Bursa Teleferik, şehir merkezinden Uludağ\'a ulaşım sağlar. Şehir merkezinden kolay ulaşım ile gidilebilinir.',
         location: 'https://maps.google.com/maps?q=Bursa+Teleferik',
         image: 'https://www.outdoorhaber.com/wp-content/uploads/2017/07/teferruc-teleferik-istasyonu.jpg'
+
       },
       {
         title: 'Tophane',
@@ -52,11 +54,12 @@ const Guide = ({ language }: { language: 'tr' | 'en' }) => {
         description: 'Bursa\'nın en büyük camisi olan Ulu Cami, Osmanlı mimarisinin en önemli örneklerinden biridir.',
         location: 'https://maps.google.com/maps?q=Ulu+Cami+Bursa',
         image: 'https://www.gotobursa.com.tr/uploads/2021/01/dji_0034_large_1_large.jpg'
+
       }
     ],
     en: [
       {
-        title: 'Emir Sultan Shrine',
+         title: 'Emir Sultan Shrine',
         description: 'Emir Sultan Mosque and Tomb, one of Bursa\'s most important spiritual places, is a beautiful example of Ottoman architecture.',
         location: 'https://maps.google.com/maps?q=Emir+Sultan+Mosque+Bursa',
         image: 'https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTMci8iaW9rChtM6VR2EgB9JA5liv5tP1Of9EnByQow90hmz2OoClGn9uyLi7QIIYNI-P0dV1RkPHJdjGeAXzy8EI6cc10e-ow_4c3iOA'
@@ -78,9 +81,10 @@ const Guide = ({ language }: { language: 'tr' | 'en' }) => {
         description: 'Historical bazaar from the Ottoman period, offering traditional Turkish handicrafts and textile products.',
         location: 'https://maps.google.com/maps?q=Grand+Bazaar+Bursa',
         image: 'https://www.dergibursa.com.tr/wp-content/uploads/2015/06/Sultan-%C3%87ar%C5%9F%C4%B1lar%C4%B1-ve-Hanlar-B%C3%B6lgesi.jpg'
+
       },
       {
-        title: 'Historical Bursa Plane Tree',
+        title: 'Bursa Plane İnkaya Tree',
         description: 'The 700-year-old plane tree, also known as Inkaya Plane Tree, is one of Bursa\'s living historical monuments.',
         location: 'https://maps.google.com/maps?q=Inkaya+Plane+Tree+Bursa',
         image: 'https://cdnuploads.aa.com.tr/uploads/userFiles/82e2c611-519a-471c-8da1-e26f0e4933a0/2019%2FAgustoss22%2F20190819_2_37812092_46893354.jpg'
@@ -103,18 +107,72 @@ const Guide = ({ language }: { language: 'tr' | 'en' }) => {
         location: 'https://maps.google.com/maps?q=Grand+Mosque+Bursa',
         image: 'https://www.gotobursa.com.tr/uploads/2021/01/dji_0034_large_1_large.jpg'
       }
+    ],
+    ar: [
+      {
+        title: 'جامع ومجمع الأمير سلطان',
+        description: 'جامع ومجمع الأمير سلطان، أحد أهم الأماكن الروحية في بورصة، هو مثال جميل للعمارة العثمانية.',
+        location: 'https://maps.google.com/maps?q=Emir+Sultan+Camii+Bursa',
+        image: 'https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTMci8iaW9rChtM6VR2EgB9JA5liv5tP1Of9EnByQow90hmz2OoClGn9uyLi7QIIYNI-P0dV1RkPHJdjGeAXzy8EI6cc10e-ow_4c3iOA'
+      },
+      {
+        title: 'الضريح والجامع الأخضر',
+        description: 'الضريح الأخضر، الذي أصبح رمزاً لبورصة، هو صرح عثماني رائع مشهور ببلاطه الخزفي.',
+        location: 'https://maps.google.com/maps?q=Yeşil+Türbe+Bursa',
+        image: 'https://yildirim.bel.tr/files/cms/47/web/114/8931/dosyalar/p1eavlqmtu1n5mtetl1efcc1vsl4.jpg'
+      },
+      {
+        title: 'السوق الأخضر',
+        description: 'سوق تاريخي يعرض الحرف اليدوية التقليدية والهدايا التذكارية في بورصة.',
+        location: 'https://maps.google.com/maps?q=Yeşil+Çarşı+Bursa',
+        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/4c/0b/9c/lindas-luminarias.jpg?w=900&h=500&s=1'
+      },
+      {
+        title: 'السوق المغطى',
+        description: 'سوق تاريخي من العهد العثماني، يقدم الحرف اليدوية التركية التقليدية والمنتجات النسيجية.',
+        location: 'https://maps.google.com/maps?q=Kapalı+Çarşı+Bursa',
+        image: 'https://www.dergibursa.com.tr/wp-content/uploads/2015/06/Sultan-%C3%87ar%C5%9F%C4%B1lar%C4%B1-ve-Hanlar-B%C3%B6lgesi.jpg'
+      },
+      {
+        title: 'شجرة إنكايا',
+        description: 'شجرة عمرها 700 عام، المعروفة أيضاً باسم شجرة إنكايا، هي واحدة من المعالم التاريخية الحية في بورصة.',
+        location: 'https://maps.google.com/maps?q=İnkaya+Çınarı+Bursa',
+        image: 'https://cdnuploads.aa.com.tr/uploads/userFiles/82e2c611-519a-471c-8da1-e26f0e4933a0/2019%2FAgustoss22%2F20190819_2_37812092_46893354.jpg'
+      },
+      {
+        title: 'التلفريك',
+        description: 'أطول خط تلفريك في العالم، يربط وسط المدينة بجبل أولوداغ.',
+        location: 'https://maps.google.com/maps?q=Bursa+Teleferik',
+        image: 'https://www.outdoorhaber.com/wp-content/uploads/2017/07/teferruc-teleferik-istasyonu.jpg'
+      },
+      {
+        title: 'طوب خانة',
+        description: 'المنطقة التاريخية حيث يقع ضريحا مؤسسي الإمبراطورية العثمانية عثمان غازي وأورخان غازي.',
+        location: 'https://maps.google.com/maps?q=Tophane+Bursa',
+        image: 'https://www.gotobursa.com.tr/uploads/2021/09/saat-kulesi_large_large.jpg'
+      },
+      {
+        title: 'الجامع الكبير',
+        description: 'الجامع الكبير، أكبر مسجد في بورصة، هو أحد أهم الأمثلة على العمارة العثمانية.',
+        location: 'https://maps.google.com/maps?q=Ulu+Cami+Bursa',
+        image: 'https://www.gotobursa.com.tr/uploads/2021/01/dji_0034_large_1_large.jpg'
+      }
     ]
   };
 
+  const dir = language === 'ar' ? 'rtl' : 'ltr';
+
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16">
+    <div className="max-w-7xl mx-auto px-4 py-16" dir={dir}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
         <h1 className="text-4xl font-bold text-blue-900 mb-12 text-center">
-          {language === 'tr' ? 'Bursa Rehberi' : 'Bursa Guide'}
+          {language === 'tr' ? 'Bursa Rehberi' : 
+           language === 'en' ? 'Bursa Guide' : 
+           'دليل بورصة'}
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -153,7 +211,9 @@ const Guide = ({ language }: { language: 'tr' | 'en' }) => {
                 >
                   <Navigation className="w-4 h-4 mr-1" />
                   <span className="text-sm font-medium">
-                    {language === 'tr' ? 'Yol Tarifi Al' : 'Get Directions'}
+                    {language === 'tr' ? 'Yol Tarifi Al' : 
+                     language === 'en' ? 'Get Directions' : 
+                     'احصل على الاتجاهات'}
                   </span>
                 </a>
               </div>
