@@ -9,12 +9,12 @@ interface SEOHelmetProps {
   image?: string;
 }
 
-const SEOHelmet: React.FC<SEOHelmetProps> = ({ 
-  title, 
-  description, 
-  keywords, 
-  path,
-  image = 'https://r.resimlink.com/kYTfn9u.jpg'
+const SEOHelmet: React.FC<SEOHelmetProps> = ({
+  title = "Çeşmeli Hotel Bursa - Konforlu ve Uygun Fiyatlı Konaklama",
+  description = "Çeşmeli Hotel Ailesi, merkezi konumu ve en uygun fiyatlarıyla her zaman tüm dünyanın tercihi ve aile otelidir. Hijyenik ve konforlu odalar, profesyonel hizmet anlayışıyla ...",
+  keywords = "Çeşmeli Hotel Bursa, Uygun Fiyatlı Otel, Merkezi Konum, Bursa Otel, Tatil, 750, tatil bursa, ucuz oteller, bursada nerede, kalınır, Konforlu Konaklama, Hijyenik Odalar, Aile Oteli, Merkezi Otel Bursa",
+  path = "/",
+  image = "https://r.resimlink.com/kYTfn9u.jpg"
 }) => {
   const baseUrl = 'https://hotelcesmeli.com';
   const fullUrl = `${baseUrl}${path}`;
