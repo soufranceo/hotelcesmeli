@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
-const Contact = ({ language }: { language: 'tr' | 'en' }) => {
+const Contact = ({ language }: { language: 'tr' | 'en' | 'ar' }) => {
   const formRef = useRef<HTMLFormElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -17,7 +17,9 @@ const Contact = ({ language }: { language: 'tr' | 'en' }) => {
       send: 'Gönder',
       success: 'Mesajınız başarıyla gönderildi!',
       error: 'Bir hata oluştu. Lütfen tekrar deneyin.',
-      address: 'Alacamescit, Gümüşçeken Cd. no:6, 16200 Osmangazi/Bursa'
+      address: 'Alacamescit, Gümüşçeken Cd. no:6, 16200 Osmangazi/Bursa',
+      phone: 'Telefon',
+      emailLabel: 'E-posta'
     },
     en: {
       title: 'Contact',
@@ -27,7 +29,21 @@ const Contact = ({ language }: { language: 'tr' | 'en' }) => {
       send: 'Send',
       success: 'Your message has been sent successfully!',
       error: 'An error occurred. Please try again.',
-      address: 'Alacamescit, Gümüşçeken St. no:6, 16200 Osmangazi/Bursa'
+      address: 'Alacamescit, Gümüşçeken St. no:6, 16200 Osmangazi/Bursa',
+      phone: 'Phone',
+      emailLabel: 'Email'
+    },
+    ar: {
+      title: 'اتصل بنا',
+      name: 'الاسم الكامل',
+      email: 'البريد الإلكتروني',
+      message: 'رسالتك',
+      send: 'إرسال',
+      success: 'تم إرسال رسالتك بنجاح!',
+      error: 'حدث خطأ. يرجى المحاولة مرة أخرى.',
+      address: 'علاجا مسجد، شارع غوموشجكن رقم ٦، ١٦٢٠٠ عثمان غازي/بورصة',
+      phone: 'الهاتف',
+      emailLabel: 'البريد الإلكتروني'
     }
   };
 
@@ -54,8 +70,10 @@ const Contact = ({ language }: { language: 'tr' | 'en' }) => {
     }
   };
 
+  const dir = language === 'ar' ? 'rtl' : 'ltr';
+
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16">
+    <div className="max-w-7xl mx-auto px-4 py-16" dir={dir}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -155,7 +173,9 @@ const Contact = ({ language }: { language: 'tr' | 'en' }) => {
                   <MapPin className="w-6 h-6 text-blue-900 mt-1" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">
-                      {language === 'tr' ? 'Adres' : 'Address'}
+                      {language === 'tr' ? 'Adres' : 
+                       language === 'en' ? 'Address' : 
+                       'العنوان'}
                     </h3>
                     <p className="text-gray-600">{content[language].address}</p>
                   </div>
@@ -165,7 +185,7 @@ const Contact = ({ language }: { language: 'tr' | 'en' }) => {
                   <Phone className="w-6 h-6 text-blue-900" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">
-                      {language === 'tr' ? 'Telefon' : 'Phone'}
+                      {content[language].phone}
                     </h3>
                     <p className="text-gray-600">+90 543 228 15 11</p>
                   </div>
@@ -175,7 +195,7 @@ const Contact = ({ language }: { language: 'tr' | 'en' }) => {
                   <Mail className="w-6 h-6 text-blue-900" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">
-                      {language === 'tr' ? 'E-posta' : 'Email'}
+                      {content[language].emailLabel}
                     </h3>
                     <p className="text-gray-600">cesmelihotel16@hotmail.com</p>
                   </div>
