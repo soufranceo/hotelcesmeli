@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import HotelTitle from './HotelTitle';
 
 const Navbar = ({ setLanguage, language }: { setLanguage: (lang: 'tr' | 'en' | 'ar') => void, language: 'tr' | 'en' | 'ar' }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const menuItems = {
     tr: ['Ana Sayfa', 'Odalarımız', 'Hakkımızda', 'Bursa Rehberi', 'İletişim'],
@@ -15,24 +16,26 @@ const Navbar = ({ setLanguage, language }: { setLanguage: (lang: 'tr' | 'en' | '
   const paths = ['/', '/rooms', '/about', '/guide', '/contact'];
 
   return (
-    <nav className="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+    <nav className="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
             <HotelTitle language={language} />
           </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8" style={{ gap: '2rem' }}>
             {menuItems[language].map((item, index) => (
               <Link
                 key={item}
                 to={paths[index]}
-                className="text-gray-700 hover:text-blue-900 transition-colors"
+                className={`text-gray-700 hover:text-blue-900 transition-colors ${
+                  location.pathname === paths[index] ? 'text-blue-900 font-semibold' : ''
+                }`}
               >
                 {item}
               </Link>
             ))}
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center gap-2">
               <button
                 onClick={() => setLanguage('tr')}
                 className={`px-2 py-1 rounded ${language === 'tr' ? 'bg-blue-900 text-white' : 'text-gray-700'}`}
@@ -68,7 +71,9 @@ const Navbar = ({ setLanguage, language }: { setLanguage: (lang: 'tr' | 'en' | '
               <Link
                 key={item}
                 to={paths[index]}
-                className="block py-2 text-gray-700 hover:text-blue-900"
+                className={`block py-2 text-gray-700 hover:text-blue-900 ${
+                  location.pathname === paths[index] ? 'text-blue-900 font-semibold' : ''
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {item}
