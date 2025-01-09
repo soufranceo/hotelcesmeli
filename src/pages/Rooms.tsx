@@ -4,7 +4,7 @@ import { Users, Wifi, Coffee, Tv } from 'lucide-react';
 import RoomImageSlider from '../components/RoomImageSlider';
 import { roomImages } from '../utils/imageUtils';
 
-const Rooms = ({ language }: { language: 'tr' | 'en' }) => {
+const Rooms = ({ language }: { language: 'tr' | 'en' | 'ar' }) => {
   const rooms = {
     tr: [
       {
@@ -73,6 +73,40 @@ const Rooms = ({ language }: { language: 'tr' | 'en' }) => {
         images: roomImages.singleRoom,
         size: '18m²'
       }
+    ],
+    ar: [
+      {
+        title: 'غرفة عائلية لأربعة أشخاص',
+        description: 'غرفنا العائلية الواسعة مع إطلالة على الشارع تحتوي على سرير مزدوج وسريرين مفردين. يمكن لـ 4 أشخاص الإقامة براحة تامة.',
+        amenities: ['واي فاي مجاني', 'تلفاز LCD', 'تكييف هواء', 'ميني بار', 'طقم شاي/قهوة', 'منطقة جلوس'],
+        capacity: 4,
+        images: roomImages.familyRoom,
+        size: '30m²'
+      },
+      {
+        title: 'غرفة ثلاثية',
+        description: 'غرفنا الواسعة مع إطلالة على الشارع تحتوي على سرير مزدوج وسرير مفرد. يمكن لـ 3 أشخاص الإقامة براحة تامة.',
+        amenities: ['واي فاي مجاني', 'تلفاز LCD', 'تكييف هواء', 'ميني بار', 'طقم شاي/قهوة'],
+        capacity: 3,
+        images: roomImages.tripleRoom,
+        size: '25m²'
+      },
+      {
+        title: 'غرفة مزدوجة',
+        description: 'غرفنا المزدوجة الواسعة تحتوي على سرير مزدوج. يمكن لشخصين الإقامة براحة تامة.',
+        amenities: ['واي فاي مجاني', 'تلفاز LCD', 'تكييف هواء', 'ميني بار', 'طقم شاي/قهوة'],
+        capacity: 2,
+        images: roomImages.doubleRoom,
+        size: '20m²'
+      },
+      {
+        title: 'غرفة مفردة قياسية',
+        description: 'يمكنك اختيار غرفنا المفردة إما بسرير مزدوج أو مفرد والإقامة براحة تامة.',
+        amenities: ['واي فاي مجاني', 'تلفاز LCD', 'تكييف هواء', 'ميني بار'],
+        capacity: 1,
+        images: roomImages.singleRoom,
+        size: '18m²'
+      }
     ]
   };
 
@@ -84,7 +118,9 @@ const Rooms = ({ language }: { language: 'tr' | 'en' }) => {
         transition={{ duration: 0.8 }}
       >
         <h1 className="text-4xl font-bold text-blue-900 mb-12 text-center">
-          {language === 'tr' ? 'Odalarımız' : 'Our Rooms'}
+          {language === 'tr' ? 'Odalarımız' : 
+           language === 'en' ? 'Our Rooms' : 
+           'غرفنا'}
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -102,7 +138,9 @@ const Rooms = ({ language }: { language: 'tr' | 'en' }) => {
                   <div className="flex items-center space-x-1">
                     <Users className="w-4 h-4 text-blue-900" />
                     <span className="text-sm font-medium text-blue-900">
-                      {room.capacity} {language === 'tr' ? 'Kişilik' : 'Person'}
+                      {room.capacity} {language === 'tr' ? 'Kişilik' : 
+                                     language === 'en' ? 'Person' : 
+                                     'شخص'}
                     </span>
                   </div>
                 </div>
