@@ -1,12 +1,42 @@
-<body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+<!doctype html>
+<html lang="tr">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16452370162"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'AW-16452370162');
+    </script>
 
-    <!-- Rezervasyon Butonu Stil -->
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bursa Otelleri | HOTEL ÇEŞMELİ – Şehir Merkezinde Konforlu Konaklama, Uygun Fiyat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
+    <!-- Mobil Uyumluluk ve Responsive Stil -->
     <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        font-family: 'Montserrat', sans-serif;
+        box-sizing: border-box;
+      }
+
+      *, *::before, *::after {
+        box-sizing: inherit;
+      }
+
       .dropdown-reserve {
         position: fixed;
-        bottom: 100px; /* WhatsApp ikonunun üstü */
+        bottom: 100px;
         right: 16px;
         z-index: 9999;
       }
@@ -72,11 +102,73 @@
 
       @media screen and (max-width: 640px) {
         .dropdown-reserve {
-          bottom: 90px;
+          bottom: 88px;
           right: 16px;
+        }
+
+        .reserve-btn {
+          padding: 10px 16px;
+          font-size: 14px;
+        }
+
+        .dropdown-reserve a {
+          font-size: 14px;
         }
       }
     </style>
+
+    <!-- Meta Tags -->
+    <meta name="title" content="Hotel Çeşmeli Bursa | Şehir Merkezinde Konforlu Konaklama, Uygun Fiyatlı Otel">
+    <meta name="description" content="Bursa'nın merkezinde, Ulucami ve Kapalı Çarşı'ya yakın konumda bulunan Hotel Çeşmeli. Ailenizin huzur ve güvenli adresi. Uygun fiyatlı konaklama, ücretsiz WiFi, açık büfe kahvaltı ve daha fazlası. Hemen rezervasyon yapın!">
+    <meta name="keywords" content="Bursa otelleri, merkez otel, konforlu otel, uygun fiyatlı otel, Bursa şehir merkezi, Bursa konaklama, Hotel Çeşmeli, aile oteli, rezervasyon, ücretsiz WiFi">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cesmelihotel.com/">
+    <meta property="og:title" content="Hotel Çeşmeli Bursa | Şehir Merkezinde Konforlu Konaklama, Uygun Fiyatlı Otel">
+    <meta property="og:description" content="Bursa'nın merkezinde, Ulucami ve Kapalı Çarşı'ya yakın konumda. Ailenizin huzur ve güvenli adresi. Uygun fiyatlar ve kaliteli hizmet. Hemen rezervasyon yapın!">
+    <meta property="og:image" content="https://resmim.net/cdn/2024/12/09/DokmC2.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://cesmelihotel.com/">
+    <meta property="twitter:title" content="Hotel Çeşmeli Bursa | Şehir Merkezinde Konforlu Konaklama, Uygun Fiyatlı Otel">
+    <meta property="twitter:description" content="Bursa'nın merkezinde, Ulucami ve Kapalı Çarşı'ya yakın konumda. Ailenizin huzur ve güvenli adresi. Uygun fiyatlar ve kaliteli hizmet. Hemen rezervasyon yapın!">
+    <meta property="twitter:image" content="https://resmim.net/cdn/2024/12/09/DokmC2.jpg">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Hotel",
+        "name": "Hotel Çeşmeli",
+        "url": "https://cesmelihotel.com/",
+        "image": "https://resmim.net/cdn/2024/12/09/DokmC2.jpg",
+        "description": "Hotel Çeşmeli, Bursa şehir merkezinde Ulucami ve Kapalı Çarşı'ya yakın konumda uygun fiyatlı, konforlu bir oteldir. Aileniz için güvenli ve huzurlu bir konaklama deneyimi sunuyoruz.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Örnek Sokak, Bursa",
+          "addressLocality": "Bursa",
+          "postalCode": "16000",
+          "addressCountry": "TR"
+        },
+        "telephone": "+90 543 228 15 11",
+        "priceRange": "₺₺₺",
+        "amenityFeature": {
+          "@type": "LocationFeatureSpecification",
+          "name": "Ücretsiz Wi-Fi"
+        },
+        "checkinTime": "15:00",
+        "checkoutTime": "12:00"
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
 
     <!-- Sabit Rezervasyon Butonu -->
     <div class="dropdown-reserve">
@@ -84,8 +176,9 @@
       <div class="dropdown-menu">
         <a href="https://www.expedia.com/Bursa-Hotels-Hotel-Cesmeli.h42536245.Hotel-Information?referrerId=HOT.HIS.Share.Landed.Copy_Link" target="_blank">🌐 Expedia</a>
         <a href="https://www.booking.com/index.tr.html?label=gen173rf-10CAso5AFCB2Nlc21lbGlIKFgDaOQBiAECmAEzuAEJyAER2AED6AEB-AEBiAIBmAI3qAIBuAKH07LEBsACAdICJDA3YzBlY2E3LWFjMmYtNGY0OC1iMTM3LWQ2NmYwNTg5NGRmMNgCAeACAQ" target="_blank">🌐 Booking.com</a>
-        <a href="https://www.tatilbudur.com/cesmeli-hotel?tb_source=1004&gad_source=1&gad_campaignid=12464126289&gbraid=0AAAAADsCO0KKIbDr-bZRdVfUcGemjfpj-&gclid=Cj0KCQjwhafEBhCcARIsAEGZEKKrPOV2YPo_OFck73WCFDCdhklPsVWU1EN3io1DYL2Pgl0uwquY_GUaAmVxEALw_wcB" target="_blank">🌐 TatilBudur</a>
-        <a href="https://www.jollytur.com/cesmeli-hotel?gclsrc=aw.ds&gad_source=1&gad_campaignid=11668165580&gbraid=0AAAAADnS22cKdVJxjUQfz9KcC6_vorrgo&gclid=Cj0KCQjwhafEBhCcARIsAEGZEKKDimFko0lzxNiUsKOcS7xBHi_kin19O2bKRBue80IVDeFJWJSv7mgaAsuGEALw_wcB" target="_blank">🌐 JollyTur</a>
+        <a href="https://www.tatilbudur.com/cesmeli-hotel?tb_source=1004&gad_source=1&gad_campaignid=12464126289&gbraid=0AAAAADsCO0KKIbDr-bZRdVfUcGemjfpj-" target="_blank">🌐 TatilBudur</a>
+        <a href="https://www.jollytur.com/cesmeli-hotel?gclsrc=aw.ds&gad_source=1&gad_campaignid=11668165580&gbraid=0AAAAADnS22cKdVJxjUQfz9KcC6_vorrgo" target="_blank">🌐 JollyTur</a>
       </div>
     </div>
   </body>
+</html>
