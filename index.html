@@ -162,4 +162,18 @@
 </div>
 
   </body>
+  <script>
+  document.getElementById("testButton").addEventListener("click", function () {
+    if (typeof gtag === "function") {
+      gtag('event', 'test_click', {
+        event_category: 'Test',
+        event_label: 'Mobil Buton',
+        send_to: ['G-X3XTHWN8NW', 'G-JEWBR3Q1JT']
+      });
+      alert("Etkinlik gönderildi!");
+    } else {
+      alert("gtag henüz yüklenmedi.");
+    }
+  });
+  </script>
 </html>
