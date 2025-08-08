@@ -67,61 +67,70 @@
     <!-- Floating CTA (Rezervasyon + Ara) -->
     <style>
       :root{
-        /* WhatsApp balonunun üstünde kaç px boşluk bırakalım? */
-        --wa-clearance: 78px;   /* gerekirse 60–110 arasında oynat */
+        /* WhatsApp balonunun üstünde kaç px boşluk: ekranına göre 60–110 arası oynatabilirsin */
+        --wa-clearance: 78px;
+        /* Sağ kenara uzaklık */
         --cta-right: 16px;
-        --gap: 12px;
+        /* Geniş butonların sağdan içe kaydırılması (alttaki WhatsApp ile çakışmasın) */
+        --wa-offset: 74px;
+        /* İki buton arası boşluk */
+        --cta-gap: 12px;
       }
+
       .cta-stack{
         position: fixed;
         right: var(--cta-right);
-        bottom: calc(var(--wa-clearance) + 58px); /* WA yüksekliği 58px varsayıldı */
+        bottom: calc(var(--wa-clearance) + 58px); /* WA yüksekliği ~58px */
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        gap: var(--gap);
+        gap: var(--cta-gap);
         z-index: 9999;
-        pointer-events: none; /* sadece butonlar tıklanabilir */
+        pointer-events: none;              /* Arkadaki slider tıklanmasın diye */
       }
       .cta-stack > *{ pointer-events: auto; }
 
-      /* Rezervasyon (üst) */
-      .cta-reserve{
-        background:#2563eb; color:#fff;
-        padding:12px 20px; border:2px solid #3b82f6; border-radius:9999px;
-        font-family:'Montserrat',sans-serif; font-weight:700;
-        text-decoration:none; box-shadow:0 8px 18px rgba(0,0,0,.22);
-        transition:transform .15s ease; white-space:nowrap;
+      /* Geniş (pil) buton ortak stil */
+      .cta-wide{
+        margin-right: var(--wa-offset);    /* İKİSİ DE AYNI HİZADA */
+        padding: 12px 20px;
+        border-radius: 9999px;
+        border: 2px solid transparent;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        box-shadow: 0 8px 18px rgba(0,0,0,.22);
+        transition: transform .15s ease;
+        white-space: nowrap;
         max-width: calc(100vw - 180px);
       }
+      .cta-wide:active{ transform: translateY(1px); }
+
+      /* Mavi Rezervasyon */
+      .cta-reserve{ background:#2563eb; border-color:#3b82f6; }
       .cta-reserve:hover{ transform: translateY(-1px); }
+
+      /* Kırmızı Ara (aynı konum/genişlik) */
+      .cta-call-line{ background:#e53935; border-color:#ef5350; }
+      .cta-call-line:hover{ transform: translateY(-1px); }
+
+      /* Rezervasyon menüsü (opsiyonel) */
       .cta-menu{
-        display:none; position:absolute; right: calc(var(--cta-right) + 74px); /* solda açılır */
-        bottom: calc(var(--wa-clearance) + 58px + 2px);
+        display:none;
+        position:fixed;
+        right: calc(var(--cta-right) + var(--wa-offset) + 8px); /* butonun soluna açılır */
+        bottom: calc(var(--wa-clearance) + 58px);
         background:#fff; border:1px solid #e5e7eb; border-radius:10px; min-width:220px;
         box-shadow:0 12px 30px rgba(0,0,0,.18); overflow:hidden; z-index:10000;
       }
-      .cta-menu a{
-        display:block; padding:10px 14px; color:#111827; text-decoration:none;
-      }
+      .cta-menu a{ display:block; padding:10px 14px; color:#111827; text-decoration:none; }
       .cta-menu a:hover{ background:#eff6ff; color:#1d4ed8; }
-
-      /* Ara (orta) */
-      .cta-call{
-        width:58px; height:58px; border-radius:50%;
-        background:#e53935; display:flex; align-items:center; justify-content:center;
-        box-shadow:0 8px 18px rgba(0,0,0,.22);
-        transition: transform .15s ease;
-      }
-      .cta-call:hover{ transform: translateY(-1px); }
-      .cta-icon{ width:26px; height:26px; fill:#fff; }
 
       /* Küçük ekran ayarı */
       @media (max-width:640px){
-        :root{ --wa-clearance: 70px; }
-        .cta-reserve{ padding:10px 16px; font-size:14px; max-width: calc(100vw - 170px); }
-        .cta-call{ width:54px; height:54px; }
-        .cta-icon{ width:24px; height:24px; }
+        :root{ --wa-clearance: 70px; --wa-offset: 70px; }
+        .cta-wide{ padding:10px 16px; font-size:14px; max-width: calc(100vw - 170px); }
       }
     </style>
   </head>
@@ -130,20 +139,19 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- Sağ alt: Rezervasyon (üst) + Ara (orta) -->
+    <!-- Sağ alt: Mavi Rezervasyon + Kırmızı Ara -->
     <div class="cta-stack">
-      <button id="reserveBtn" class="cta-reserve"
-        onclick="gtag('event','open_reservation_menu',{event_category:'Rezervasyon',event_label:'Menü Açıldı'});">
+      <button id="reserveBtn" class="cta-wide cta-reserve">
         Rezervasyon Yap
       </button>
 
-      <a href="tel:+905432281511" class="cta-call" aria-label="Telefonla Ara"
-        onclick="gtag('event','click_call_button',{event_category:'Iletisim',event_label:'Telefon +905432281511'});">
-        <svg class="cta-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 16.5v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.5 3.18 2 2 0 0 1 3.5 1h3a2 2 0 0 1 2 1.72c.13.96.37 1.89.7 2.78a2 2 0 0 1-.45 2.11L7.7 9.66a16 16 0 0 0 6 6l2.05-1.06a2 2 0 0 1 2.11.45c.89.33 1.82.57 2.78.7A2 2 0 0 1 21 16.5Z"/></svg>
+      <a href="tel:+905432281511" class="cta-wide cta-call-line" aria-label="Telefonla Ara"
+         onclick="gtag('event','click_call_button',{event_category:'Iletisim',event_label:'Telefon +905432281511'});">
+        📞 Ara: +90 543 228 15 11
       </a>
     </div>
 
-    <!-- Rezervasyon menüsü (butonun soluna açılır) -->
+    <!-- Rezervasyon menüsü (butona tıklayınca açılır) -->
     <div id="reserveMenu" class="cta-menu">
       <a href="https://www.expedia.com/Bursa-Hotels-Hotel-Cesmeli.h42536245.Hotel-Information?referrerId=HOT.HIS.Share.Landed.Copy_Link" target="_blank"
          onclick="gtag('event','click_reservation_link',{event_category:'Rezervasyon',event_label:'Expedia'});">🌐 Expedia</a>
@@ -158,15 +166,17 @@
     <script>
       // Rezervasyon menüsü: tıkla-aç / boşluğa tıkla-kapat
       (function(){
-        const btn = document.getElementById('reserveBtn');
+        const btn  = document.getElementById('reserveBtn');
         const menu = document.getElementById('reserveMenu');
-        btn.addEventListener('click', function(e){
-          e.stopPropagation();
-          menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-        });
-        document.addEventListener('click', function(){
-          if(menu.style.display === 'block') menu.style.display = 'none';
-        });
+        if(btn && menu){
+          btn.addEventListener('click', function(e){
+            e.stopPropagation();
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+          });
+          document.addEventListener('click', function(){
+            if(menu.style.display === 'block') menu.style.display = 'none';
+          });
+        }
       })();
     </script>
   </body>
