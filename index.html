@@ -46,15 +46,15 @@
       "image": "https://resmim.net/cdn/2024/12/09/DokmC2.jpg",
       "description": "Hotel Çeşmeli, Bursa şehir merkezinde Ulucami ve Kapalı Çarşı'ya yürüme mesafesinde, aile dostu, konforlu ve uygun fiyatlı bir oteldir, Bursa otel | Merkez",
       "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "alacamescit cad. no 16 bursa merkez / osmangazi",
-        "addressLocality": "Bursa",
-        "postalCode": "16000",
-        "addressCountry": "TR"
+        "@type":"PostalAddress",
+        "streetAddress":"alacamescit cad. no 16 bursa merkez / osmangazi",
+        "addressLocality":"Bursa",
+        "postalCode":"16000",
+        "addressCountry":"TR"
       },
-      "telephone": "+90 543 228 15 11",
-      "priceRange": "₺₺₺",
-      "amenityFeature": [
+      "telephone":"+90 543 228 15 11",
+      "priceRange":"₺₺₺",
+      "amenityFeature":[
         {"@type":"LocationFeatureSpecification","name":"Ücretsiz Wi-Fi","value":true},
         {"@type":"LocationFeatureSpecification","name":"Açık Büfe Kahvaltı","value":true},
         {"@type":"LocationFeatureSpecification","name":"Klima & Isıtma","value":true}
@@ -64,13 +64,13 @@
     }
     </script>
 
-    <!-- Floating Buttons CSS -->
+    <!-- Floating Buttons CSS (temiz) -->
     <style>
       /* Rezervasyon (üstte) */
       .dropdown-reserve{
         position:fixed;
-        right:16px;
-        bottom:140px; /* WhatsApp'ın üstünde kalsın */
+        right:90px;           /* sağdaki yuvarlaklara yer açtık */
+        bottom:136px;         /* WhatsApp + Ara üstünde */
         z-index:9999;
         font-family:'Montserrat',sans-serif;
       }
@@ -79,6 +79,8 @@
         padding:12px 20px;border:2px solid #3b82f6;border-radius:9999px;
         font-weight:600;box-shadow:0 2px 6px rgba(0,0,0,.15);
         cursor:pointer;transition:all .3s ease;
+        max-width:calc(100vw - 180px); /* küçük ekranda taşmayı engeller */
+        white-space:nowrap;
       }
       .reserve-btn:hover{ background:#1e40af; transform:scale(1.05); }
       .dropdown-menu{
@@ -94,7 +96,7 @@
 
       /* Arama (ortada) */
       .call-btn{
-        position:fixed; right:16px; bottom:80px; /* Rezervasyonun altında */
+        position:fixed; right:16px; bottom:74px;
         width:58px;height:58px;border-radius:50%;
         background:#e53935;color:#fff;display:flex;align-items:center;justify-content:center;
         box-shadow:0 8px 20px rgba(0,0,0,.25);
@@ -105,10 +107,10 @@
 
       /* Mobil ince ayar */
       @media (max-width:640px){
-        .dropdown-reserve{ right:14px; bottom:130px; }
-        .reserve-btn{ padding:10px 16px; font-size:14px; }
-        .call-btn{ right:14px; bottom:70px; width:54px; height:54px; }
-        .call-btn svg{ width:24px;height:24px; }
+        .dropdown-reserve{ right:86px; bottom:124px; }
+        .reserve-btn{ padding:10px 16px; font-size:14px; max-width:calc(100vw - 170px); }
+        .call-btn{ bottom:64px; width:54px; height:54px; }
+        .call-btn svg{ width:24px; height:24px; }
       }
     </style>
   </head>
