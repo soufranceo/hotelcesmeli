@@ -66,54 +66,51 @@
     </script>
 
     <style>
-      /* REZERVASYON MENÜSÜ (sağ-alt, biraz yukarı) */
-      .dropdown-reserve{
-        position:fixed;
-        right:16px;
-        bottom:140px; /* YUKARI ALINDI: WhatsApp ile çakışmasın */
-        z-index:9999;
-        font-family:'Montserrat',sans-serif;
-      }
-      .reserve-btn{
-        background:#2563eb;color:#fff;
-        padding:12px 20px;border:2px solid #3b82f6;border-radius:9999px;
-        font-weight:600;box-shadow:0 2px 6px rgba(0,0,0,.15);
-        cursor:pointer;transition:all .3s ease;
-      }
-      .reserve-btn:hover{ background:#1e40af; transform:scale(1.05); }
-      .dropdown-reserve .dropdown-menu{
-        display:none;position:absolute;bottom:60px;right:0;background:#fff;
-        border:1px solid #ccc;border-radius:8px;min-width:200px;
-        box-shadow:0 6px 15px rgba(0,0,0,.15);
-      }
-      .dropdown-reserve:hover .dropdown-menu{ display:block; }
-      .dropdown-reserve a{
-        display:block;padding:10px 15px;color:#1f2937;font-weight:500;
-        text-decoration:none;transition:background .2s,color .2s;
-      }
-      .dropdown-reserve a:hover{ background:#eff6ff;color:#1d4ed8; }
+      <!-- Sabit Butonlar -->
+<div class="button-group">
+  <!-- Rezervasyon -->
+  <a href="https://www.booking.com/index.tr.html" target="_blank" class="btn rezervasyon">
+    Rezervasyon Yap
+  </a>
+  <!-- Arama -->
+  <a href="tel:+905432281511" class="btn call">
+    📞 Ara
+  </a>
+</div>
 
-      /* ARAMA BUTONU: rezervasyonun altında */
-      .call-btn{
-        position:fixed; right:16px; bottom:70px;   /* Rezervasyonun altına denk gelir */
-        width:58px;height:58px;border-radius:50%;
-        background:#e53935;color:#fff;
-        display:flex;align-items:center;justify-content:center;
-        box-shadow:0 8px 20px rgba(0,0,0,.25);
-        z-index:10000; transition:transform .2s ease, background .2s ease;
-      }
-      .call-btn:hover{ background:#c62828; transform:scale(1.06); }
-      .call-btn svg{ width:26px;height:26px; display:block; }
-
-      /* Mobil ayarları */
-      @media (max-width:640px){
-        .dropdown-reserve{ bottom:130px; right:14px; }
-        .reserve-btn{ padding:10px 16px; font-size:14px; }
-        .dropdown-reserve a{ font-size:14px; }
-        .call-btn{ width:54px;height:54px; bottom:60px; right:14px; }
-        .call-btn svg{ width:24px;height:24px; }
-      }
-    </style>
+<style>
+.button-group {
+  position: fixed;
+  right: 15px;
+  bottom: 90px; /* WhatsApp butonunun üstünde kalacak şekilde ayarlandı */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+.rezervasyon {
+  background-color: #2563eb;
+}
+.call {
+  background-color: #e53935;
+}
+</style>
   </head>
 
   <body>
