@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="tr">
   <head>
     <!-- Google Ads -->
@@ -18,7 +17,8 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bursa Otelleri | HOTEL ÇEŞMELİ – Şehir Merkezinde Konforlu Konaklama, Uygun Fiyat</title><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <title>Bursa Otelleri | HOTEL ÇEŞMELİ – Şehir Merkezinde Konforlu Konaklama, Uygun Fiyat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
 
 <meta name="title" content="Hotel Çeşmeli Bursa | Şehir Merkezinde Konforlu Konaklama, Uygun Fiyatlı Otel">
 <meta name="description" content="Bursa'nın merkezinde, Ulucami ve Kapalı Çarşı'ya yakın konumda bulunan Hotel Çeşmeli. Ailenizin huzur ve güvenli adresi. Uygun fiyatlı konaklama, ücretsiz WiFi, açık büfe kahvaltı ve daha fazlası. Hemen rezervasyon yapın!">
@@ -131,6 +131,22 @@
     background-color: #1e40af;
     transform: scale(1.05);
   }
+  /* Yeni Arama Butonu */
+  .call-btn{
+    position:fixed;
+    right:16px;
+    bottom:16px;
+    width:58px;height:58px;
+    border-radius:50%;
+    background:#e53935;
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+    z-index:10000;
+    transition:transform .2s ease, background .2s ease, box-shadow .2s ease;
+  }
+  .call-btn:hover{ background:#c62828; transform:scale(1.06); box-shadow:0 10px 24px rgba(0,0,0,.3); }
+  .call-btn svg{ width:26px;height:26px; display:block; }
   @media screen and (max-width: 640px) {
     .dropdown-reserve {
       bottom: 88px;
@@ -143,23 +159,34 @@
     .dropdown-reserve a {
       font-size: 14px;
     }
+    .call-btn{ width:54px;height:54px; bottom:14px; right:14px; }
+    .call-btn svg{ width:24px;height:24px; }
   }
 </style>
 
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script><div class="dropdown-reserve">
-  <button class="reserve-btn" onclick="gtag('event', 'open_reservation_menu', { event_category: 'Rezervasyon', event_label: 'Menü Açıldı', send_to: ['G-X3XTHWN8NW', 'G-JEWBR3Q1JT'] });">
-    Rezervasyon Yap
-  </button>
-  <div class="dropdown-menu">
-    <a href="https://www.expedia.com/Bursa-Hotels-Hotel-Cesmeli.h42536245.Hotel-Information?referrerId=HOT.HIS.Share.Landed.Copy_Link" target="_blank" onclick="gtag('event', 'click_reservation_link', { event_category: 'Rezervasyon', event_label: 'Expedia', send_to: ['G-X3XTHWN8NW', 'G-JEWBR3Q1JT'] });">🌐 Expedia</a>
-    <a href="https://www.booking.com/index.tr.html?label=gen173rf-10CAso5AFCB2Nlc21lbGlIKFgDaOQBiAECmAEzuAEJyAER2AED6AEB-AEBiAIBmAI3qAIBuAKH07LEBsACAdICJDA3YzBlY2E3LWFjMmYtNGY0OC1iMTM3LWQ2NmYwNTg5NGRmMNgCAeACAQ" target="_blank" onclick="gtag('event', 'click_reservation_link', { event_category: 'Rezervasyon', event_label: 'Booking.com', send_to: ['G-X3XTHWN8NW', 'G-JEWBR3Q1JT'] });">🌐 Booking.com</a>
-    <a href="https://www.tatilbudur.com/cesmeli-hotel" target="_blank" onclick="gtag('event', 'click_reservation_link', { event_category: 'Rezervasyon', event_label: 'TatilBudur', send_to: ['G-X3XTHWN8NW', 'G-JEWBR3Q1JT'] });">🌐 TatilBudur</a>
-    <a href="https://www.jollytur.com/cesmeli-hotel" target="_blank" onclick="gtag('event', 'click_reservation_link', { event_category: 'Rezervasyon', event_label: 'JollyTur', send_to: ['G-X3XTHWN8NW', 'G-JEWBR3Q1JT'] });">🌐 JollyTur</a>
-  </div>
-</div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <div class="dropdown-reserve">
+      <button class="reserve-btn" onclick="gtag('event', 'open_reservation_menu', { event_category: 'Rezervasyon', event_label: 'Menü Açıldı', send_to: ['G-X3XTHWN8NW', 'G-JEWBR3Q1JT'] });">
+        Rezervasyon Yap
+      </button>
+      <div class="dropdown-menu">
+        <a href="https://www.expedia.com/Bursa-Hotels-Hotel-Cesmeli.h42536245.Hotel-Information?referrerId=HOT.HIS.Share.Landed.Copy_Link" target="_blank" onclick="gtag('event', 'click_reservation_link', { event_category: 'Rezervasyon', event_label: 'Expedia' });">🌐 Expedia</a>
+        <a href="https://www.booking.com/index.tr.html?label=gen173rf-10CAso5AFCB2Nlc21lbGlIKFgDaOQBiAECmAEzuAEJyAER2AED6AEB-AEBiAIBmAI3qAIBuAKH07LEBsACAdICJDA3YzBlY2E3LWFjMmYtNGY0OC1iMTM3LWQ2NmYwNTg5NGRmMNgCAeACAQ" target="_blank" onclick="gtag('event', 'click_reservation_link', { event_category: 'Rezervasyon', event_label: 'Booking.com' });">🌐 Booking.com</a>
+        <a href="https://www.tatilbudur.com/cesmeli-hotel" target="_blank" onclick="gtag('event', 'click_reservation_link', { event_category: 'Rezervasyon', event_label: 'TatilBudur' });">🌐 TatilBudur</a>
+        <a href="https://www.jollytur.com/cesmeli-hotel" target="_blank" onclick="gtag('event', 'click_reservation_link', { event_category: 'Rezervasyon', event_label: 'JollyTur' });">🌐 JollyTur</a>
+      </div>
+    </div>
+
+    <!-- Yeni Arama Butonu ke-->
+    <a href="tel:+905432281511" class="call-btn" aria-label="Telefonla Ara" onclick="gtag('event','click_call_button',{event_category:'Iletisim',event_label:'Telefon +905432281511'});">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 16.5v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.5 3.18 2 2 0 0 1 3.5 1h3a2 2 0 0 1 2 1.72c.13.96.37 1.89.7 2.78a2 2 0 0 1-.45 2.11L7.7 9.66a16 16 0 0 0 6 6l2.05-1.06a2 2 0 0 1 2.11.45c.89.33 1.82.57 2.78.7A2 2 0 0 1 21 16.5Z" fill="white"/>
+      </svg>
+    </a>
 
   </body>
 </html>
